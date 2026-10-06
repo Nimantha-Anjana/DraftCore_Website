@@ -2,7 +2,7 @@ import HeroVideo from "./HeroVideo";
 import HeroOverlay from "./HeroOverlay";
 import ScrollIndicator from "./ScrollIndicator";
 
-import "./hero.css";
+import "../../styles/components/hero.css";
 
 const HeroSection = () => {
   return (
