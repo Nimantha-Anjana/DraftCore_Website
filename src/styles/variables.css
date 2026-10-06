@@ -1,0 +1,50 @@
+:root {
+  /* ================================
+     DRAFTCORE COLOR SYSTEM
+  ================================= */
+
+  --dc-black: #080808;
+  --dc-dark: #0d0d0d;
+  --dc-dark-soft: #141414;
+  --dc-surface: #1a1a1a;
+
+  --dc-white: #f5f5f2;
+  --dc-white-soft: #d8d8d3;
+
+  --dc-gray: #999994;
+  --dc-gray-dark: #666660;
+
+  --dc-accent: #c8a96b;
+  --dc-accent-light: #d9bd83;
+
+  --dc-border: rgba(255, 255, 255, 0.12);
+
+  /* ================================
+     TYPOGRAPHY
+  ================================= */
+
+  --font-primary: "Inter", sans-serif;
+  --font-display: "Manrope", sans-serif;
+
+  /* ================================
+     SPACING
+  ================================= */
+
+  --section-padding-desktop: 120px;
+  --section-padding-tablet: 90px;
+  --section-padding-mobile: 70px;
+
+  /* ================================
+     CONTAINER
+  ================================= */
+
+  --container-width: 1400px;
+
+  /* ================================
+     TRANSITIONS
+  ================================= */
+
+  --transition-fast: 0.25s ease;
+  --transition-normal: 0.4s ease;
+  --transition-slow: 0.8s ease;
+}
