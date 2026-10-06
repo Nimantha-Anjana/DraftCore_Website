@@ -1,77 +1,30 @@
 import { Link } from "react-router-dom";
 import services from "../../data/services";
+import SectionTitle from "../common/SectionTitle";
+import ScrollReveal from "../animations/ScrollReveal";
 
-const ServicesPreview = () => {
+export default function ServicesPreview({ intro = true }) {
   return (
-    <section className="section services-preview dark-section">
-
-      <div className="container-dc">
-
-        <div className="services-heading-row">
-
-          <div>
-            <span className="eyebrow">
-              What We Do
-            </span>
-
-            <h2 className="section-title">
-              Six capabilities.
-              <br />
-              One accountable partner.
-            </h2>
-          </div>
-
-          <Link
-            to="/services"
-            className="text-link"
-          >
-            Explore all services
-            <i className="bi bi-arrow-up-right"></i>
-          </Link>
-
-        </div>
-
-        <div className="service-grid">
-
-          {services.map((service) => (
-            <Link
-              to={`/services/${service.slug}`}
-              className="service-card"
-              key={service.id}
-            >
-
-              <div className="service-card-top">
-                <span>{service.number}</span>
-
-                <i className="bi bi-arrow-up-right"></i>
-              </div>
-
-              <div className="service-card-content">
-
-                <h3>
-                  {service.title}
-                </h3>
-
-                <p>
-                  {service.description}
-                </p>
-
-              </div>
-
-              <div className="service-card-bottom">
-                Explore capability
-                <span>→</span>
-              </div>
-
-            </Link>
+    <section className="sec grid-bg alt">
+      <div className="wrap">
+        {intro && (
+          <SectionTitle tag="02 · What we do" aside={<Link to="/services" className="tlink">All services <i className="bi bi-arrow-up-right" /></Link>}>
+            Six capabilities. <em>One accountable partner.</em>
+          </SectionTitle>
+        )}
+        <div className="svc-list">
+          {services.map((s, i) => (
+            <ScrollReveal key={s.id} delay={i * 50}>
+              <Link to={`/services/${s.slug}`} className="svc-row">
+                <span className="mono">{s.number}</span>
+                <h3 className="display">{s.title}</h3>
+                <p>{s.description}</p>
+                <i className="bi bi-arrow-up-right" />
+              </Link>
+            </ScrollReveal>
           ))}
-
         </div>
-
       </div>
-
     </section>
   );
-};
-
-export default ServicesPreview;
+}

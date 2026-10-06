@@ -1,23 +1,10 @@
 import { Link } from "react-router-dom";
 
-const Button = ({
-  children,
-  to,
-  variant = "primary",
-  icon = true,
-}) => {
+export default function Button({ children, to, variant = "ink", icon = true }) {
   return (
-    <Link
-      to={to}
-      className={`dc-button dc-button-${variant}`}
-    >
+    <Link to={to} className={`btn btn-${variant}`}>
       {children}
-
-      {icon && (
-        <i className="bi bi-arrow-up-right"></i>
-      )}
+      {icon && <i className="bi bi-arrow-up-right" />}
     </Link>
   );
-};
-
-export default Button;
+}

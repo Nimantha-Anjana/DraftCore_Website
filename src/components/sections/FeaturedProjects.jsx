@@ -1,81 +1,31 @@
 import { Link } from "react-router-dom";
 import projects from "../../data/projects";
+import SectionTitle from "../common/SectionTitle";
+import ScrollReveal from "../animations/ScrollReveal";
 
-const FeaturedProjects = () => {
+export default function FeaturedProjects({ intro = true }) {
   return (
-    <section className="section projects-preview">
-
-      <div className="container-dc">
-
-        <div className="projects-header">
-
-          <div>
-            <span className="eyebrow">
-              Selected Work
-            </span>
-
-            <h2 className="section-title">
-              Projects
-            </h2>
-          </div>
-
-          <Link
-            to="/projects"
-            className="text-link"
-          >
-            View portfolio
-            <i className="bi bi-arrow-up-right"></i>
-          </Link>
-
-        </div>
-
-        {projects.length === 0 ? (
-
-          <div className="projects-empty">
-
-            <div className="projects-empty-number">
-              00
-            </div>
-
-            <h3>
-              Portfolio coming soon.
-            </h3>
-
-            <p>
-              Approved project case studies, images and
-              project information will appear here.
-            </p>
-
-          </div>
-
-        ) : (
-
-          <div className="project-grid">
-            {projects.map((project) => (
-              <Link
-                to={`/projects/${project.slug}`}
-                key={project.id}
-                className="project-card"
-              >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                />
-
-                <div className="project-overlay">
-                  <span>{project.category}</span>
-                  <h3>{project.title}</h3>
-                </div>
-              </Link>
-            ))}
-          </div>
-
+    <section className="sec">
+      <div className="wrap">
+        {intro && (
+          <SectionTitle tag="04 · Where we work" aside={<Link to="/projects" className="tlink">All project types <i className="bi bi-arrow-up-right" /></Link>}>
+            Documentation for <em>every kind of space.</em>
+          </SectionTitle>
         )}
-
+        <div className="cards">
+          {projects.map((p, i) => (
+            <ScrollReveal key={p.id} delay={i * 80}>
+              <Link to={`/projects/${p.slug}`} className="card">
+                <div className={`thumb t${i % 4}`}><span className="mono">{p.code}</span></div>
+                <span className="mono mute">{p.category}</span>
+                <h3 className="display">{p.title}</h3>
+                <p>{p.summary}</p>
+              </Link>
+            </ScrollReveal>
+          ))}
+        </div>
+        <p className="note mono">Representative scopes. Detailed case studies available on request.</p>
       </div>
-
     </section>
   );
-};
-
-export default FeaturedProjects;
+}

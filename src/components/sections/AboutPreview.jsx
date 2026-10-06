@@ -1,52 +1,20 @@
-import SectionLabel from "../common/SectionLabel";
 import Button from "../common/Button";
+import ScrollReveal from "../animations/ScrollReveal";
 
-const AboutPreview = () => {
+export default function AboutPreview() {
   return (
-    <section className="section about-preview">
-
-      <div className="container-dc">
-
-        <div className="about-grid">
-
-          <div>
-            <SectionLabel number="01">
-              About DraftCore
-            </SectionLabel>
+    <section className="sec">
+      <div className="wrap about-grid">
+        <ScrollReveal><span className="tag">01 · Who we are</span></ScrollReveal>
+        <ScrollReveal delay={100}>
+          <h2 className="display big">We turn design intent into <em>buildable reality.</em></h2>
+          <div className="two">
+            <p>DraftCore is a specialist design and documentation partner that works as an extended arm of your existing design and technical team. We join your process, your standards and your deadlines.</p>
+            <p>From BIM modelling and construction documentation to shop drawings, interior design support, project delivery and FF&E, our role is simple: close the gap between what was designed and what gets built.</p>
           </div>
-
-          <div className="about-content">
-
-            <h2>
-              We turn design intent into
-              <span> buildable reality.</span>
-            </h2>
-
-            <p>
-              DraftCore Solutions is a specialist design and
-              documentation partner working as an extended arm
-              of existing design and technical teams.
-            </p>
-
-            <p>
-              From BIM modelling and construction documentation
-              to shop drawings, interior design support, project
-              delivery and FF&E solutions, our role is to connect
-              design intent with technical delivery.
-            </p>
-
-            <Button to="/about" variant="outline">
-              Discover DraftCore
-            </Button>
-
-          </div>
-
-        </div>
-
+          <Button to="/about" variant="ghost">Discover DraftCore</Button>
+        </ScrollReveal>
       </div>
-
     </section>
   );
-};
-
-export default AboutPreview;
+}
