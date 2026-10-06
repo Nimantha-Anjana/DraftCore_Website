@@ -1,20 +1,22 @@
-import { Outlet } from "react-router-dom";
-
+import { useEffect } from "react";
+import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "../components/navigation/Navbar";
 import Footer from "../components/footer/Footer";
+import Cursor from "../components/animations/Cursor";
 
-function MainLayout() {
+export default function MainLayout() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   return (
-    <div className="app">
+    <>
+      <Cursor />
       <Navbar />
-
-      <main className="main-content">
+      <main key={pathname} className="page-in">
         <Outlet />
       </main>
-
       <Footer />
-    </div>
+    </>
   );
 }
-
-export default MainLayout;

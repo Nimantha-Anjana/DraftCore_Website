@@ -1,79 +1,28 @@
-const reasons = [
-  {
-    number: "01",
-    title: "Single Accountable Partner",
-    description:
-      "Design, BIM, documentation, site support and FF&E under one coordinated delivery structure.",
-  },
-  {
-    number: "02",
-    title: "Documentation You Can Build From",
-    description:
-      "Defined standards and coordinated documentation across project stages.",
-  },
-  {
-    number: "03",
-    title: "Interior Specialists",
-    description:
-      "A focused understanding of fit-out, joinery and interior technical detail.",
-  },
-  {
-    number: "04",
-    title: "Flexible Capacity",
-    description:
-      "Resources can scale according to package, workload and project stage.",
-  },
+import SectionTitle from "../common/SectionTitle";
+import ScrollReveal from "../animations/ScrollReveal";
+
+export const reasons = [
+  { n: "01", t: "One accountable partner", d: "Design, BIM, documentation, site support and FF&E sit under one coordinated team, so nothing falls between suppliers." },
+  { n: "02", t: "Documentation you can build from", d: "Defined standards, internal checks and coordinated sets at every stage, so site teams spend less time chasing answers." },
+  { n: "03", t: "Interior specialists", d: "We understand fit-out, joinery and interior technical detail, not just drafting software." },
+  { n: "04", t: "Flexible capacity", d: "Resources scale with package, workload and project stage. You get the team you need, when you need it." },
 ];
 
-const WhyDraftCore = () => {
+export default function WhyDraftCore({ intro = true }) {
   return (
-    <section className="section why-section dark-section">
-
-      <div className="container-dc">
-
-        <div className="why-header">
-
-          <span className="eyebrow">
-            Why DraftCore
-          </span>
-
-          <h2 className="section-title">
-            Built around
-            <br />
-            your team.
-          </h2>
-
-        </div>
-
-        <div className="why-list">
-
-          {reasons.map((reason) => (
-            <div
-              className="why-item"
-              key={reason.number}
-            >
-
-              <span className="why-number">
-                {reason.number}
-              </span>
-
-              <h3>
-                {reason.title}
-              </h3>
-
-              <p>
-                {reason.description}
-              </p>
-
-            </div>
+    <section className="sec dark">
+      <div className="wrap">
+        {intro && <SectionTitle tag="05 · Why DraftCore">Built around <em>your team.</em></SectionTitle>}
+        <div className="why-grid">
+          {reasons.map((r, i) => (
+            <ScrollReveal key={r.n} delay={i * 80} className="why">
+              <b className="display">{r.n}</b>
+              <h3>{r.t}</h3>
+              <p>{r.d}</p>
+            </ScrollReveal>
           ))}
-
         </div>
-
       </div>
-
     </section>
   );
-};
-
-export default WhyDraftCore;
+}

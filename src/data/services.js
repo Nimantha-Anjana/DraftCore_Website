@@ -1,105 +1,55 @@
 const services = [
   {
-    id: 1,
-    number: "01",
-    slug: "bim-modelling",
-    title: "BIM Modelling",
-    shortTitle: "BIM",
-    description:
-      "Revit ID and Architecture models with documentation up to LOD 300.",
+    id: 1, number: "01", slug: "bim-modelling", title: "BIM Modelling", short: "BIM",
+    description: "Revit ID and Architecture models with documentation up to LOD 300.",
+    intro: "Coordinated Revit models for interiors and architecture, set up to your standards and modelled to LOD 300, so sheets, schedules and views stay in sync as the design moves.",
     details: [
-      "Revit ID Modelling and Documentation up to LOD 300",
-      "Revit Architecture Modelling and Documentation up to LOD 300",
+      "Revit ID modelling and documentation up to LOD 300",
+      "Revit Architecture modelling and documentation up to LOD 300",
       "Coordinated, standards-driven output",
     ],
+    deliverables: ["Revit ID & Architecture models", "Sheets, views & schedules", "Template & family setup", "Coordination review"],
+    bestFor: "Studios moving from CAD to BIM, or projects that need one coordinated model to work from.",
   },
-
   {
-    id: 2,
-    number: "02",
-    slug: "cad-documentation",
-    title: "CAD Documentation",
-    shortTitle: "CAD",
-    description:
-      "Complete interior documentation sets across CD, SD, DD, Tender and IFC stages.",
-    details: [
-      "Plans",
-      "RCPs",
-      "Elevations",
-      "Sections",
-      "Details",
-      "Documentation coordination",
-    ],
+    id: 2, number: "02", slug: "cad-documentation", title: "CAD Documentation", short: "CAD",
+    description: "Complete interior documentation sets across CD, SD, DD, Tender and IFC stages.",
+    intro: "Full interior documentation sets issued at the stage your project needs, from SD and DD through tender, construction and IFC. Clean, consistent and ready for a contractor to price and build.",
+    details: ["Plans", "RCPs", "Elevations", "Sections", "Details", "Documentation coordination"],
+    deliverables: ["Plans & reflected ceiling plans", "Elevations & sections", "Detail sheets", "Tender & IFC issue sets"],
+    bestFor: "Design teams that need extra drafting capacity without compromising drawing quality.",
   },
-
   {
-    id: 3,
-    number: "03",
-    slug: "shop-drawings",
-    title: "Shop Drawings",
-    shortTitle: "SHOP",
-    description:
-      "Fit-out and joinery shop drawings ready for fabrication and installation.",
-    details: [
-      "Joinery",
-      "Wall panelling",
-      "Ceilings",
-      "Loose furniture",
-      "Site-condition coordination",
-      "Manufacturer-standard coordination",
-    ],
+    id: 3, number: "03", slug: "shop-drawings", title: "Shop Drawings", short: "SHOP",
+    description: "Fit-out and joinery shop drawings ready for fabrication and installation.",
+    intro: "Fabrication-ready drawings for joinery, wall panelling, ceilings and loose furniture, coordinated with site conditions and manufacturer standards so what is drawn is what gets made and fitted.",
+    details: ["Joinery", "Wall panelling", "Ceilings", "Loose furniture", "Site-condition coordination", "Manufacturer-standard coordination"],
+    deliverables: ["Joinery shop drawings", "Panelling & ceiling setting-out", "Loose furniture drawings", "Installation details"],
+    bestFor: "Contractors and joinery workshops who want to start fabrication with fewer queries.",
   },
-
   {
-    id: 4,
-    number: "04",
-    slug: "interior-design",
-    title: "Interior Design",
-    shortTitle: "DESIGN",
-    description:
-      "Design development and technical design support from concept through delivery.",
-    details: [
-      "Interior design service",
-      "Coloured plans and elevations",
-      "Specification writing",
-      "Materials boards preparation",
-      "Vendor selection assistance",
-    ],
+    id: 4, number: "04", slug: "interior-design", title: "Interior Design", short: "DESIGN",
+    description: "Design development and technical design support from concept through delivery.",
+    intro: "Design development and technical support that takes an approved direction and develops it into coloured plans, elevations, specifications and material selections your client can sign off.",
+    details: ["Interior design service", "Coloured plans and elevations", "Specification writing", "Materials boards preparation", "Vendor selection assistance"],
+    deliverables: ["Coloured plans & elevations", "Specifications", "Material boards", "Vendor shortlists"],
+    bestFor: "Studios and developers who need design capacity during busy stages of a project.",
   },
-
   {
-    id: 5,
-    number: "05",
-    slug: "project-delivery",
-    title: "Project Delivery",
-    shortTitle: "DELIVERY",
-    description:
-      "Support connecting design documentation with project execution.",
-    details: [
-      "ID project management consultancy",
-      "Programme/package/consultant coordination",
-      "ID-related site supervision",
-      "Snagging and quality control",
-      "Vendor selection",
-      "Value engineering assistance",
-    ],
+    id: 5, number: "05", slug: "project-delivery", title: "Project Delivery", short: "DELIVERY",
+    description: "Support connecting design documentation with project execution.",
+    intro: "A bridge between the drawing set and the site. We coordinate packages and consultants, support supervision of ID-related items, and help close out snagging with quality in mind.",
+    details: ["ID project management consultancy", "Programme, package and consultant coordination", "ID-related site supervision", "Snagging and quality control", "Vendor selection", "Value engineering assistance"],
+    deliverables: ["ID PM consultancy", "Programme & package coordination", "Site supervision (ID scope)", "Snagging & QC reports"],
+    bestFor: "Teams who want design intent protected through procurement, installation and handover.",
   },
-
   {
-    id: 6,
-    number: "06",
-    slug: "ffe-solutions",
-    title: "FF&E Solutions",
-    shortTitle: "FF&E",
-    description:
-      "Supply and reengineering support for interior finishes and furnishings.",
-    details: [
-      "Furniture supply",
-      "Wallpaper supply",
-      "Rugs & carpets",
-      "Fabric reengineering",
-    ],
+    id: 6, number: "06", slug: "ffe-solutions", title: "FF&E Solutions", short: "FF&E",
+    description: "Supply and reengineering support for interior finishes and furnishings.",
+    intro: "Supply and reengineering support for furniture, wallpaper, rugs, carpets and fabrics, helping teams stay true to the design intent within budget and programme.",
+    details: ["Furniture supply", "Wallpaper supply", "Rugs & carpets", "Fabric reengineering"],
+    deliverables: ["Furniture supply", "Wallpaper supply", "Rugs & carpets", "Fabric reengineering"],
+    bestFor: "Projects where finishes and furnishings need sourcing, value-engineering or adapting.",
   },
 ];
-
 export default services;

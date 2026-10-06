@@ -1,80 +1,45 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import MobileMenu from "./MobileMenu";
-import "../../styles/components/navbar.css";
+import navigation from "../../data/navigation";
 
-const Navbar = () => {
+export const Logo = ({ onClick, still = false }) => (
+  <Link to="/" className="logo" onClick={onClick} aria-label="DraftCore Solutions home">
+    {still ? (
+      <img className="logo-img" src="/images/logo/mark.png" alt="" />
+    ) : (
+      <video className="logo-vid" src="/videos/logo-mark.mp4" poster="/images/logo/mark.png" autoPlay muted playsInline preload="auto" aria-hidden="true" />
+    )}
+    <span className="logo-word"><b>DRAFTCORE</b><small>Solutions PVT LTD</small></span>
+  </Link>
+);
+
+export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-
+  const [open, setOpen] = useState(false);
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
+    const f = () => setScrolled(window.scrollY > 20);
+    f();
+    window.addEventListener("scroll", f, { passive: true });
+    return () => window.removeEventListener("scroll", f);
   }, []);
-
-  const closeMenu = () => setMenuOpen(false);
-
   return (
     <>
-      <header className={`dc-navbar ${scrolled ? "scrolled" : ""}`}>
-        <div className="container-dc navbar-inner">
-
-          <Link to="/" className="dc-logo" onClick={closeMenu}>
-            <span className="logo-mark">D</span>
-
-            <span className="logo-text">
-              DRAFT<span>CORE</span>
-            </span>
-          </Link>
-
-          <nav className="desktop-nav">
-            <NavLink to="/" end>
-              Home
-            </NavLink>
-
-            <NavLink to="/about">
-              About
-            </NavLink>
-
-            <NavLink to="/services">
-              Services
-            </NavLink>
-
-            <NavLink to="/projects">
-              Projects
-            </NavLink>
-
-            <NavLink to="/why-draftcore">
-              Why DraftCore
-            </NavLink>
+      <header className={`nav ${scrolled || open ? "solid" : ""}`}>
+        <div className="wrap nav-in">
+          <Logo onClick={() => setOpen(false)} />
+          <nav className="links">
+            {navigation.filter((n) => n.path !== "/contact").map((n) => (
+              <NavLink key={n.path} to={n.path} end={n.path === "/"}>{n.label}</NavLink>
+            ))}
           </nav>
-
-          <div className="navbar-actions">
-            <Link to="/contact" className="nav-contact">
-              Discuss Your Project
-              <i className="bi bi-arrow-up-right"></i>
-            </Link>
-
-            <button
-              className={`menu-toggle ${menuOpen ? "active" : ""}`}
-              onClick={() => setMenuOpen(!menuOpen)}
-              aria-label="Toggle menu"
-            >
-              <span></span>
-              <span></span>
-            </button>
-          </div>
+          <Link to="/contact" className="nav-cta">Start a project <i className="bi bi-arrow-up-right" /></Link>
+          <button className={`burger ${open ? "on" : ""}`} onClick={() => setOpen(!open)} aria-label="Toggle menu">
+            <span /><span />
+          </button>
         </div>
       </header>
-
-      <MobileMenu open={menuOpen} onClose={closeMenu} />
+      <MobileMenu open={open} onClose={() => setOpen(false)} />
     </>
   );
-};
-
-export default Navbar;
+}

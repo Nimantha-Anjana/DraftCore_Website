@@ -1,29 +1,14 @@
+import PageHero from "../components/common/PageHero";
 import FeaturedProjects from "../components/sections/FeaturedProjects";
+import FinalCTA from "../components/sections/FinalCTA";
 
-const Projects = () => {
+export default function Projects() {
   return (
-    <main>
-
-      <section className="page-hero">
-        <div className="container-dc">
-
-          <span className="eyebrow">
-            Portfolio
-          </span>
-
-          <h1>
-            Selected
-            <br />
-            Projects.
-          </h1>
-
-        </div>
-      </section>
-
-      <FeaturedProjects />
-
-    </main>
+    <>
+      <PageHero sheet="A-04" label="Projects" tag="Portfolio" title={<>Selected <em>scopes of work.</em></>}
+        lede="The kinds of packages we document and deliver. Client case studies and sample sheets are shared on request." />
+      <FeaturedProjects intro={false} />
+      <FinalCTA />
+    </>
   );
-};
-
-export default Projects;
+}
