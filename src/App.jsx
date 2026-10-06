@@ -2,6 +2,9 @@ import { Routes, Route } from "react-router-dom";
 
 import MainLayout from "./layouts/MainLayout";
 
+import Navbar from "./components/navigation/Navbar";
+import Footer from "./components/footer/Footer";
+
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -14,6 +17,9 @@ import NotFound from "./pages/NotFound";
 
 function App() {
   return (
+    <>
+      <Navbar />
+      
     <Routes>
       <Route element={<MainLayout />}>
         <Route path="/" element={<Home />} />
@@ -27,6 +33,9 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
+
+     <Footer />
+    </>
   );
 }
 
