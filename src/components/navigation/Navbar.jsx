@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import MobileMenu from "./MobileMenu";
-import "./navbar.css";
+import "../../styles/components/navbar.css";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
